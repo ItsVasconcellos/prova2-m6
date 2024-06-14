@@ -1,7 +1,7 @@
 # prova2-m6
 
 # Video final 
-![](/assets/video.avi)
+![](/assets/video.mp4)
 
 # 2. Perguntas técnicas
 ## 2.1. Descreva de maneira concisa (um parágrafo no máximo) o funcionamento do método de detecção escolhido.
@@ -16,16 +16,22 @@ R: O modelo escolhido para a detecção foi o haarcascade, o qual funciona a par
 
 R: 
 1 - Haar Cascade: É possível solucionar o problema de identificação de faces com o seu uso, como já foi demonstrado diversas vezes. Além disso, sua implementação não exige de muito hardware, permitindo que seja aplicado em dispostivos até mesmo como um arduino. Todavia, sua desvantagem está na eficiência em detectar variações nas faces.
+
 2 - CNN: O seu funcionamento, segmentando a imagens em partes menores e fazendo uma avaliação disso com o todo permite uma grande eficiência na detecção de rostos, porém a sua grande complexidade computacional não o tora uma alternativa tão simples para resolver esse problema. O uso de bibliotecas pode auxiliar na implementação do CNN.
+
 3 - Filtros de correlação cruzada: O filtro de correlação cruzada é eficiente para imagens que possuem elementos extramamente semelhantes, tanto de característica quanto de angulação. Isso se deve ao fato de que ele é pouco versátil, ao ser um filtro que identifica o quão semelhante aquele trecho é  a uma determinada imagem original.
+
 4 - NN Linear: O problema não é tecnicamente possível de ser solúvel em NN linear devido ao fato de que a única camada de neurônios deveria ser capaz de compreender um todo, o que não é possível. 
 
 ## 2.3. Considerando as mesmas alternativas acima, faça uma nova classificação considerando a viabilidade técnica para detecção de emoções através da imagem de uma face.
 
 R:
-1 - CNN: As redes neurais permitem lidar com pequenos trechos da imagem, assim  
+1 - CNN: As redes neurais permitem lidar com pequenos trechos da imagem, assim seria possível identificar pequenas variações em determinadas características, como lábios, bocheca, olhos, testa entre outros. 
+
 2 - Filtro de correlação cruzada: Caso fossem implmentado um número n de filtros, contendo diferentes fotos da pessoa alterando expressões faciais, exisitiria a possibilidade de verificar essa alteração, passando os filtros sobre a imagem. 
+
 3 - Haar Cascade: É possível solucionar o problema de identificação de faces com o seu uso, como já foi demonstrado diversas vezes. Além disso, sua implementação não exige de muito hardware, permitindo que seja aplicado em dispostivos até mesmo como um arduino. Todavia, sua desvantagem está na eficiência em detectar variações nas faces. 
+
 4 - NN Linear: Como dito na resposta anterior, o NN Linear não deveria ser levado em consideração para a resolução desse tipo de problema.
 
 ## 2.4. A solução apresentada ou qualquer outra das que foram listadas na questão 2.2. tem a capacidade de considerar variações de um frame para outro (e.g. perceber que em um frame a pessoa está feliz e isso influenciar na detecção do próximo frame)? Se não, quais alterações poderiam ser feitas para que isso seja possível?
