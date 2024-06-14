@@ -1,8 +1,12 @@
 import cv2
 import numpy as np
 
+""""
+Foram testados com todos os modelos existentes na pasta /model
+"""
+
 # Variáveis para acessar os arquivos e algumas de suas propriedades
-default_classifier = cv2.CascadeClassifier("model/haarcascade_profileface.xml")
+default_classifier = cv2.CascadeClassifier("model/haarcascade_eye.xml")
 alt_classifier = cv2.CascadeClassifier("model/haarcascade_frontalface_alt.xml")
 video = cv2.VideoCapture("../assets/la_cabra.mp4")
 width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -18,15 +22,17 @@ def coloca_retangulo(img, faces):
     cv2.rectangle(img_saida, (pos_x,pos_y), (pos_x+largura, pos_y+altura), color=(200,0,158), thickness=3)
   return img_saida
 
+## Tratamento para evitar alguns falsos positivos
 def detects_another_face(frame):
-    faces = default_classifier.detectMultiScale(frame, scaleFactor = 1.15, minNeighbors=6)
+    faces = default_classifier.detectMultiScale(frame, scaleFactor = 1.2, minNeighbors=11)
     if len(faces) > 0:
         return True
     else:
         return False
 
+# Função principal
 def main():
-       # Check if camera opened successfully
+       # Verifica se leu o vídeo
     if not video.isOpened():
       print("Error opening video stream or file")
 
@@ -53,9 +59,8 @@ def main():
 
     images_with_rect = []
     for frame in frames:
-        faces_alt = alt_classifier.detectMultiScale(frame, scaleFactor = 1.2, minNeighbors=9)
+        faces_alt = alt_classifier.detectMultiScale(frame, scaleFactor = 1.2, minNeighbors=15)
         true_faces = False
-        print(faces_alt)
         if len(faces_alt) > 0:
             true_faces = detects_another_face(frame)
         if true_faces:
