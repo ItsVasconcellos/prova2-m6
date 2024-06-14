@@ -1,7 +1,7 @@
 # prova2-m6
 
 # Video final 
-![](/assets/video.mp4)
+![](/assets/video.gif)
 
 # 2. Perguntas técnicas
 ## 2.1. Descreva de maneira concisa (um parágrafo no máximo) o funcionamento do método de detecção escolhido.
